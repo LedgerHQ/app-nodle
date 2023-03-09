@@ -1,6 +1,6 @@
 #*******************************************************************************
 #  Ledger App
-#  (c) 2019 - 2022 Zondax GmbH
+#  (c) 2019 - 2022 Zondax AG
 #  (c) 2017 Ledger
 #
 #  Licensed under the Apache License, Version 2.0 (the "License");
@@ -96,6 +96,9 @@ $(error "$(error_message)")
 endif
 
 APP_LOAD_PARAMS = --curve ed25519 $(COMMON_LOAD_PARAMS) --path $(APPPATH)
+
+APP_LOAD_PARAMS += --tlvraw 9F:01
+DEFINES += HAVE_PENDING_REVIEW_SCREEN
 
 ifeq ($(TARGET_NAME),TARGET_NANOS)
 APP_LOAD_PARAMS += --appFlags 0x000
